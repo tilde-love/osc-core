@@ -1,0 +1,38 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.26730.16
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OscCore", "OscCore\OscCore.csproj", "{7EDFF8BE-94C3-44E5-A7D0-14206CA3CEB6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OscCoreTests", "OscCoreTests\OscCoreTests.csproj", "{7D5694FF-0726-4AEC-96D3-51EC159729A8}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SolutionFiles", "SolutionFiles", "{AEA9E3C3-29FA-4850-88FF-336277400460}"
+ProjectSection(SolutionItems) = preProject
+	LICENSE = LICENSE
+	README.md = README.md
+	.gitignore = .gitignore
+EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7EDFF8BE-94C3-44E5-A7D0-14206CA3CEB6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7EDFF8BE-94C3-44E5-A7D0-14206CA3CEB6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7EDFF8BE-94C3-44E5-A7D0-14206CA3CEB6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7EDFF8BE-94C3-44E5-A7D0-14206CA3CEB6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7D5694FF-0726-4AEC-96D3-51EC159729A8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7D5694FF-0726-4AEC-96D3-51EC159729A8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7D5694FF-0726-4AEC-96D3-51EC159729A8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7D5694FF-0726-4AEC-96D3-51EC159729A8}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {EC3E4AF0-DCFB-4655-9062-C83FAC3E7BFC}
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,12 @@
+﻿<wpf:ResourceDictionary xml:space="preserve" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:ss="urn:shemas-jetbrains-com:settings-storage-xaml" xmlns:wpf="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+	<s:String x:Key="/Default/CodeInspection/ExcludedFiles/FilesAndFoldersToSkip2/=7EDFF8BE_002D94C3_002D44E5_002DA7D0_002D14206CA3CEB6_002Ff_003AOscMessageRaw_002Ecs/@EntryIndexedValue">ForceIncluded</s:String>
+	<s:String x:Key="/Default/CodeInspection/ExcludedFiles/FilesAndFoldersToSkip2/=7EDFF8BE_002D94C3_002D44E5_002DA7D0_002D14206CA3CEB6_002Fd_003AInvoke_002Ff_003AOscInvoker_002Ecs/@EntryIndexedValue">ForceIncluded</s:String>
+	<s:String x:Key="/Default/CodeInspection/ExcludedFiles/FilesAndFoldersToSkip2/=D0FFF4E3_002D2993_002D471E_002D954F_002D5AF6C188A2E2_002Ff_003AProgram_002Ecs/@EntryIndexedValue">ForceIncluded</s:String>
+	<s:String x:Key="/Default/CodeInspection/ExcludedFiles/FilesAndFoldersToSkip2/=7EDFF8BE_002D94C3_002D44E5_002DA7D0_002D14206CA3CEB6_002Fd_003AInvoke_002Ff_003AOscReaderInvoker_002Ecs/@EntryIndexedValue">ForceIncluded</s:String>
+	<s:String x:Key="/Default/CodeInspection/ExcludedFiles/FilesAndFoldersToSkip2/=7EDFF8BE_002D94C3_002D44E5_002DA7D0_002D14206CA3CEB6_002Fd_003AInvoke_002Ff_003AOscMethodAdapter_002Ecs/@EntryIndexedValue">ForceIncluded</s:String>
+	<s:String x:Key="/Default/CodeInspection/ExcludedFiles/FilesAndFoldersToSkip2/=7EDFF8BE_002D94C3_002D44E5_002DA7D0_002D14206CA3CEB6_002Fd_003AInvoke_002Ff_003AIOscMarshal_002Ecs/@EntryIndexedValue">ForceIncluded</s:String>
+	<s:String x:Key="/Default/CodeInspection/ExcludedFiles/FilesAndFoldersToSkip2/=7D5694FF_002D0726_002D4AEC_002D96D3_002D51EC159729A8_002Ff_003AOscBundleTest_002Ecs/@EntryIndexedValue">ForceIncluded</s:String>
+	<s:String x:Key="/Default/CodeInspection/ExcludedFiles/FilesAndFoldersToSkip2/=7D5694FF_002D0726_002D4AEC_002D96D3_002D51EC159729A8_002Ff_003AOscBundleRawTest_002Ecs/@EntryIndexedValue">ForceIncluded</s:String>
+	<s:String x:Key="/Default/CodeInspection/ExcludedFiles/FilesAndFoldersToSkip2/=7D5694FF_002D0726_002D4AEC_002D96D3_002D51EC159729A8_002Ff_003AOscMessageTest_002Ecs/@EntryIndexedValue">ForceIncluded</s:String>
+	<s:String x:Key="/Default/CodeInspection/ExcludedFiles/FilesAndFoldersToSkip2/=7D5694FF_002D0726_002D4AEC_002D96D3_002D51EC159729A8_002Ff_003AUnitTestHelper_002Ecs/@EntryIndexedValue">ForceIncluded</s:String>
+	</wpf:ResourceDictionary>
