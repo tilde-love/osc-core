@@ -1,11 +1,39 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
-  <PropertyGroup>
-    <TargetFramework>netstandard1.3</TargetFramework>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
-    <DocumentationFile>bin\Debug\netstandard2.0\OscCore.xml</DocumentationFile>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
-    <DocumentationFile>bin\Release\netstandard2.0\OscCore.xml</DocumentationFile>
-  </PropertyGroup>
+    <PropertyGroup>
+        <VersionBase>1.0.1</VersionBase>
+    </PropertyGroup>
+
+    <PropertyGroup Condition="'$(Configuration)' == 'Debug' ">
+        <IncludeSymbols>true</IncludeSymbols>
+        <VersionSuffix>-debug-$([System.DateTime]::Now.ToString("yyyyMMddHHmm"))</VersionSuffix>
+    </PropertyGroup>
+
+    <PropertyGroup Condition="'$(Configuration)' == 'Release' ">
+        <IncludeSymbols>false</IncludeSymbols>
+        <VersionSuffix />
+    </PropertyGroup>
+
+    <PropertyGroup>
+        <Version>$(VersionBase)$(VersionSuffix)</Version>
+        <TargetFramework>netstandard1.3</TargetFramework>
+        <PackageId>$(AssemblyName)</PackageId>
+        <!--<GeneratePackageOnBuild>true</GeneratePackageOnBuild>-->
+        <PackageOutputPath>../../.package-store</PackageOutputPath>
+        <Company>Tilde Love Project</Company>
+        <PackageProjectUrl>http://tilde.love</PackageProjectUrl>
+        <Authors>Phill Tew</Authors>
+        <Copyright>Copyright (c) Tilde Love Project. All rights reserved.</Copyright>
+    </PropertyGroup>
+
+    <PropertyGroup>
+        <DocumentationFile>$(OutputPath)$(AssemblyName).xml</DocumentationFile>
+    </PropertyGroup>
+    
+    <PropertyGroup>
+        <Title>Osc Core</Title>
+        <Description>A preformant Open Sound Control library for .NET Standard from the creator of Rug.Osc</Description>
+        <RepositoryUrl>https://github.com/tilde-love/osc-core</RepositoryUrl>
+        <PackageTags>tilde; OSC; Open Sound Control;</PackageTags>
+    </PropertyGroup>
+    
 </Project>

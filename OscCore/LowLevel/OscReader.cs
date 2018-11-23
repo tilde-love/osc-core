@@ -104,7 +104,7 @@ namespace OscCore.LowLevel
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public byte PeekByte()
         {
-            return buffer.Array[Position];
+            return buffer.Array[buffer.Offset + Position];
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]

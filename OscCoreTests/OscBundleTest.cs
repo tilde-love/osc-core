@@ -2,6 +2,8 @@
 // Licensed under the MIT license. See LICENSE in the project root for license information.
 
 using System;
+using System.Collections.Generic;
+using System.Linq;
 using OscCore;
 using Xunit;
 
@@ -143,6 +145,45 @@ namespace OscCoreTests
             UnitTestHelper.AreEqual(expected, actual);
 
             //Assert.True(actual.Equals(expected));
+        }
+        
+        /// <summary>
+        ///A test for Read
+        ///</summary>
+        [Fact]
+        public void ReadOffsetTest()
+        {
+            Random random = new Random();
+            
+            for (int i = 0; i < 1000; i++)
+            {
+                OscTimeTag timestamp = new OscTimeTag(14236589681638796952);
+                
+                List<OscPacket> messages = new List<OscPacket>();
+
+                for (int j = 0; j < 10; j++)
+                {
+                    messages.Add(new OscMessage("/" + j, (float)random.NextDouble(), (float)random.NextDouble(), (float)random.NextDouble(), (float)random.NextDouble() ));
+                }
+
+                OscBundle expected = new OscBundle(timestamp, messages.ToArray());
+
+                int index = random.Next(1, 32); 
+                int endPadding = random.Next(0, 32);
+                int count = expected.SizeInBytes; 
+                
+                byte[] bytes = new byte[count + index + endPadding]; 
+                
+                random.NextBytes(bytes);
+                
+                expected.ToByteArray().CopyTo(bytes, index);
+                
+                OscBundle actual;
+
+                actual = OscBundle.Read(bytes, index, count);
+
+                UnitTestHelper.AreEqual(expected, actual);
+            }
         }
 
         /// <summary>
