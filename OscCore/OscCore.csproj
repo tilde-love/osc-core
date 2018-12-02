@@ -1,6 +1,8 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
     <PropertyGroup>
-        <VersionBase>1.0.1</VersionBase>
+        <VersionBase>1.0.2</VersionBase>
+        <GenerateDocumentationFile>true</GenerateDocumentationFile>
+        <!--<GeneratePackageOnBuild>true</GeneratePackageOnBuild>-->
     </PropertyGroup>
 
     <PropertyGroup Condition="'$(Configuration)' == 'Debug' ">
@@ -17,16 +19,11 @@
         <Version>$(VersionBase)$(VersionSuffix)</Version>
         <TargetFramework>netstandard1.3</TargetFramework>
         <PackageId>$(AssemblyName)</PackageId>
-        <!--<GeneratePackageOnBuild>true</GeneratePackageOnBuild>-->
         <PackageOutputPath>../../.package-store</PackageOutputPath>
         <Company>Tilde Love Project</Company>
         <PackageProjectUrl>http://tilde.love</PackageProjectUrl>
         <Authors>Phill Tew</Authors>
         <Copyright>Copyright (c) Tilde Love Project. All rights reserved.</Copyright>
-    </PropertyGroup>
-
-    <PropertyGroup>
-        <DocumentationFile>$(OutputPath)$(AssemblyName).xml</DocumentationFile>
     </PropertyGroup>
     
     <PropertyGroup>
