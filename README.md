@@ -16,11 +16,11 @@ The motivation for this new library is:
 Differences over Rug.Osc: 
 
 * Thread safety, Rug.Osc was aggressively thread safe. OscCore is **NOT thread safe!** you will have to deal with that stuff on your own.
-* Ease of use, Rug.Osc was very friendly. OscCore is **NOT YOUR FRIEND** it will allow you to create invalid messages and parse junk if you are not careful.
-* Transport layer, Rug.Osc had all the transport layer stuff built in, it is a one stop shop for sending and receiving OSC messages. OscCore does non of this, it is expected that you will use some other library to get data on and off the wire.
-* Osc Address routing, Rug.Osc has mechanisms for routing incoming messages to delegates. In OscCore you will have to devise the best method for how this happens in the context of your application.   
+* Ease of use, Rug.Osc was very friendly. OscCore is **NOT your friend** it will allow you to create invalid messages and parse junk if you are not careful.
+* Transport layer, Rug.Osc had all the transport layer stuff built in, it is a one stop shop for sending and receiving OSC messages. **OscCore does non of this**, it is expected that you will use some other library to get data on and off the wire.
+* Osc Address routing, Rug.Osc has mechanisms for routing incoming messages to delegates. **OscCore does not provide routing**, you will have to devise the best method for how this happens in the context of your application.   
 
-Why would I use this belligerent library?
+## Why would I use this belligerent library?
 
 OscCore is:
  

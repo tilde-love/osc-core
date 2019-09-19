@@ -1,6 +1,6 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
     <PropertyGroup>
-        <VersionBase>1.0.2</VersionBase>
+        <VersionBase>1.0.3</VersionBase>
         <GenerateDocumentationFile>true</GenerateDocumentationFile>
         <!--<GeneratePackageOnBuild>true</GeneratePackageOnBuild>-->
     </PropertyGroup>
@@ -24,6 +24,7 @@
         <PackageProjectUrl>http://tilde.love</PackageProjectUrl>
         <Authors>Phill Tew</Authors>
         <Copyright>Copyright (c) Tilde Love Project. All rights reserved.</Copyright>
+        <PackageIconUrl>https://s.gravatar.com/avatar/d56be08732b3f23cc1b11662034d8b1e?s=64</PackageIconUrl>
     </PropertyGroup>
     
     <PropertyGroup>

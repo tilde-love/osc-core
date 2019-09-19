@@ -361,7 +361,7 @@ namespace OscCore
         }
 
         /// <summary>
-        ///     Send the message body into a byte array
+        ///     Write the message body into a byte array
         /// </summary>
         /// <param name="data">an array of bytes to write the message body into</param>
         /// <param name="index">the index within the array where writing should begin</param>
