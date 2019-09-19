@@ -23,6 +23,6 @@ jobs:
           working_directory: OscCore
       - run:
           name: Snitch
-          command: find / | grep .nupkg
+          command: find ./../../ | grep .nupkg
           working_directory: OscCore
           
