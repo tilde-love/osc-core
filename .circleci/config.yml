@@ -10,16 +10,16 @@ jobs:
           command: dotnet restore
           working_directory: OscCore
       - run:
-          name: Running Tests
-          command: dotnet test
-          working_directory: OscCoreTests
-      - run:
           name: Build
-          command: dotnet build -c Release
-          working_directory: OscCore
+          command: dotnet build --configuration Release
+          working_directory: ./
+      - run:
+          name: Running Tests
+          command: dotnet test --no-build --no-restore
+          working_directory: OscCoreTests        
       - run:
           name: Pack
-          command: dotnet pack
+          command: dotnet pack --no-build --no-restore --configuration Release
           working_directory: OscCore
       - run:
           name: Snitch
