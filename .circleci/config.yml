@@ -17,3 +17,12 @@ jobs:
           name: Build
           command: dotnet build -c Release
           working_directory: OscCore
+      - run:
+          name: Pack
+          command: dotnet pack
+          working_directory: OscCore
+      - run:
+          name: Snitch
+          command: find / | grep .nupkg
+          working_directory: OscCore
+          
