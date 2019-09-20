@@ -25,4 +25,22 @@ jobs:
           name: Snitch
           command: find ./../../ | grep .nupkg
           working_directory: OscCore
-          
+  publish-latest:
+    docker:
+      - image: mcr.microsoft.com/dotnet/core/sdk:2.2-alpine
+      steps:
+        - run:
+            name: Snitch
+            command: find ./../../ | grep .nupkg
+            working_directory: OscCore       
+workflows:
+  version: 2
+  build-master:
+    jobs:
+      - build    
+      - publish-latest:
+          requires:
+            - build
+          filters:
+            branches:
+              only: master          
