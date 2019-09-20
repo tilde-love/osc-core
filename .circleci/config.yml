@@ -20,6 +20,7 @@ jobs:
       - run:
           name: Convert Test Format
           working_directory: ./
+          when: always
           command: export PATH="$PATH:/root/.dotnet/tools" && dotnet tool install -g trx2junit && trx2junit ./**/TestResults/*.trx
       - store_test_results:
           path: OscCoreTests/TestResults
