@@ -18,13 +18,14 @@ jobs:
           command: dotnet test --no-restore --logger "trx"
           working_directory: OscCoreTests          
       - run:
-          name: test results
+          name: Test Results
+          working_directory: ./
           command: |              
-              export PATH="$PATH:/root/.dotnet/tools" && dotnet tool install -g trx2junit && trx2junit tests/**/TestResults/*.trx
+              export PATH="$PATH:/root/.dotnet/tools" && dotnet tool install -g trx2junit && trx2junit ./**/TestResults/*.trx
       - store_test_results:
-          path: tests/TestResults
+          path: OscCoreTests/TestResults
       - store_artifacts:
-          path: tests/TestResults
+          path: OscCoreTests/TestResults
           destination: TestResults
   publish-latest:
     docker:
