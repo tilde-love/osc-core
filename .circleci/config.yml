@@ -20,8 +20,7 @@ jobs:
       - run:
           name: Test Results
           working_directory: ./
-          command: |              
-              export PATH="$PATH:/root/.dotnet/tools" && dotnet tool install -g trx2junit && trx2junit ./**/TestResults/*.trx
+          command: export PATH="$PATH:/root/.dotnet/tools" && dotnet tool install -g trx2junit && trx2junit ./**/TestResults/*.trx
       - store_test_results:
           path: OscCoreTests/TestResults
       - store_artifacts:
@@ -29,12 +28,14 @@ jobs:
           destination: TestResults
       - run:
           name: Pack
-          command: dotnet pack --no-build --no-restore --configuration Release
+          command: |
+              mkdir ./.nuget
+              dotnet pack --no-build --no-restore --configuration Release -o ./.nuget
           working_directory: OscCore
       - save_cache:
           key: nuget-packages-{{ arch }}-{{ .Branch }}-{{ .Environment.CIRCLE_SHA1 }}
           paths:
-            - ./../../.package-store    
+            - .nuget    
           
   publish-latest:
     docker:
@@ -44,7 +45,7 @@ jobs:
             keys: nuget-packages-{{ arch }}-{{ .Branch }}-{{ .Environment.CIRCLE_SHA1 }}
       - run:
           name: Snitch
-          command: find ./../../ | grep .nupkg
+          command: find /root/ | grep .nupkg
           working_directory: ./
           
 workflows:
