@@ -40,6 +40,7 @@ jobs:
           root: ./
           paths:
             - .nuget
+            - 
   publish-latest:
     docker:
       - image: mcr.microsoft.com/dotnet/core/sdk:2.2-alpine
@@ -51,6 +52,18 @@ jobs:
           name: Publish to nuget
           command: find ./.nuget/ | grep .nupkg | while read -r package; do dotnet nuget push "$package" -s https://api.nuget.org/v3/index.json -k $NUGET_API_TOKEN; done 
           working_directory: ./
+          
+  publish-github-release:
+    docker:
+      - image: cibuilds/github:0.10
+    steps:
+      - attach_workspace:
+          at: ./artifacts
+      - run:
+          name: "Publish Release on GitHub"
+          command: |
+            ghr -t ${GITHUB_TOKEN} -u ${CIRCLE_PROJECT_USERNAME} -r ${CIRCLE_PROJECT_REPONAME} -c ${CIRCLE_SHA1} -delete ${CIRCLE_TAG} ./artifacts/  
+            
 workflows:
   version: 2
   build-master:
@@ -68,4 +81,12 @@ workflows:
               only: /.*/
             branches:
               ignore: /.*/
-              # only: master          
+      - publish-github-release:
+          requires:
+            - build
+            - publish-latest
+          filters:
+            tags:
+              only: /.*/
+            branches:
+              ignore: /.*/                 
