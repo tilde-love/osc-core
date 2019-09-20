@@ -56,17 +56,9 @@ jobs:
           working_directory: ./
           
   publish-github-release:
-    executor:
-      name: node/default
-      tag: '10.9'
-    #docker:
-    #  - image: cibuilds/github:0.10
+    docker:
+      - image: cibuilds/github:0.10
     steps:
-      - run:
-          name: "Install GitHub Tools"
-          command: |
-            go get github.com/aktau/github-release
-            npm install github-release-notes -g
       - attach_workspace:
           at: ./artifacts
       - run:
