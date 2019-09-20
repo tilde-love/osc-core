@@ -15,8 +15,23 @@ jobs:
           working_directory: ./
       - run:
           name: Running Tests
-          command: dotnet test --no-restore
-          working_directory: OscCoreTests        
+          command: dotnet test --no-restore --logger "trx"
+          working_directory: OscCoreTests          
+      - run:
+          name: test results
+          command: |
+              dotnet tool install -g trx2junit
+              export PATH="$PATH:/root/.dotnet/tools"
+              trx2junit tests/**/TestResults/*.trx
+      - store_test_results:
+          path: tests/TestResults
+      - store_artifacts:
+          path: tests/TestResults
+          destination: TestResults
+  publish-latest:
+    docker:
+      - image: mcr.microsoft.com/dotnet/core/sdk:2.2-alpine
+    steps:
       - run:
           name: Pack
           command: dotnet pack --no-build --no-restore --configuration Release
@@ -25,14 +40,6 @@ jobs:
           name: Snitch
           command: find ./../../ | grep .nupkg
           working_directory: OscCore
-  publish-latest:
-    docker:
-      - image: mcr.microsoft.com/dotnet/core/sdk:2.2-alpine
-    steps:
-      - run:
-          name: Snitch
-          command: find ./../../ | grep .nupkg
-          working_directory: OscCore       
 workflows:
   version: 2
   build-master:
