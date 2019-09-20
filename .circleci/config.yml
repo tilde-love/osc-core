@@ -1,4 +1,6 @@
-version: 2
+version: 2.1
+orbs:
+  github-release: h-matsuo/github-release@0.1.3
 jobs:
   build:
     docker:
@@ -52,6 +54,21 @@ jobs:
           name: Publish to nuget
           command: find ./.nuget/ | grep .nupkg | while read -r package; do dotnet nuget push "$package" -s https://api.nuget.org/v3/index.json -k $NUGET_API_TOKEN; done 
           working_directory: ./
+
+  publish-github:
+    description: Delete the release tagged $CIRCLE_TAG
+    executor: github-release/default
+    steps:
+      - attach_workspace:
+          # Must be absolute path or relative path from working_directory
+          at: ./
+      - github-release/delete:
+          tag: $CIRCLE_TAG         
+      - github-release/create:
+          tag: $CIRCLE_TAG
+          title: Version $CIRCLE_TAG
+          description: This release is version $CIRCLE_TAG
+          file-path: ./.nuget/           
             
 workflows:
   version: 2
@@ -69,4 +86,14 @@ workflows:
             tags:
               only: /.*/
             branches:
-              ignore: /.*/       
+              ignore: /.*/   
+      - publish-github:
+          context: tilde-global
+          requires:
+            - build
+          filters:
+            tags:
+              only: /.*/
+            branches:
+              ignore: /.*/ 
+                  
