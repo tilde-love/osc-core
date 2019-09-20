@@ -29,13 +29,16 @@ jobs:
       - run:
           name: Pack
           command: |
-              mkdir ./.nuget
-              dotnet pack --no-build --no-restore --configuration Release -o ./.nuget
+              mkdir ../.nuget
+              dotnet pack --no-build --no-restore --configuration Release -o ../.nuget
           working_directory: OscCore
+      - store_artifacts:
+          path: ./.nuget
+          destination: Nuget Packages    
       - save_cache:
           key: nuget-packages-{{ arch }}-{{ .Branch }}-{{ .Environment.CIRCLE_SHA1 }}
           paths:
-            - ./OscCore/.nuget/*.nupkg    
+            - ./.nuget/    
           
   publish-latest:
     docker:
