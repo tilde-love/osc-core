@@ -40,7 +40,7 @@ jobs:
           root: ./
           paths:
             - .nuget
-            - 
+
   publish-latest:
     docker:
       - image: mcr.microsoft.com/dotnet/core/sdk:2.2-alpine
@@ -62,7 +62,7 @@ jobs:
       - run:
           name: "Publish Release on GitHub"
           command: |
-            ghr -t ${GITHUB_TOKEN} -u ${CIRCLE_PROJECT_USERNAME} -r ${CIRCLE_PROJECT_REPONAME} -c ${CIRCLE_SHA1} -delete ${CIRCLE_TAG} ./artifacts/  
+            ghr -t ${GITHUB_TOKEN} -u ${CIRCLE_PROJECT_USERNAME} -r ${CIRCLE_PROJECT_REPONAME} -c ${CIRCLE_SHA1} -delete ${CIRCLE_TAG} ./artifacts/.nuget/  
             
 workflows:
   version: 2
@@ -84,7 +84,7 @@ workflows:
       - publish-github-release:
           requires:
             - build
-            - publish-latest
+            # - publish-latest
           filters:
             tags:
               only: /.*/
