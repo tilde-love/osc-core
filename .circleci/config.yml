@@ -35,22 +35,21 @@ jobs:
       - store_artifacts:
           path: ./.nuget
           destination: Nuget Packages    
-      - save_cache:
-          key: nuget-packages-{{ arch }}-{{ .Branch }}-{{ .Environment.CIRCLE_SHA1 }}
+      - persist_to_workspace:
+          root: ./
           paths:
-            - ./.nuget/    
-          
+            - .nuget
   publish-latest:
     docker:
       - image: mcr.microsoft.com/dotnet/core/sdk:2.2-alpine
     steps:
-      - restore_cache:
-            keys: nuget-packages-{{ arch }}-{{ .Branch }}-{{ .Environment.CIRCLE_SHA1 }}
+      - attach_workspace:
+          # Must be absolute path or relative path from working_directory
+          at: ./
       - run:
           name: Snitch
-          command: find /root/ | grep .nupkg
+          command: find ./ | grep .nupkg
           working_directory: ./
-          
 workflows:
   version: 2
   build-master:
