@@ -1,6 +1,6 @@
 <Project Sdk="Microsoft.NET.Sdk">
     <PropertyGroup>
-        <VersionBase>1.0.4</VersionBase>
+        <VersionBase>1.0.5</VersionBase>
         <GenerateDocumentationFile>true</GenerateDocumentationFile>
         <!--<GeneratePackageOnBuild>true</GeneratePackageOnBuild>-->
     </PropertyGroup>
