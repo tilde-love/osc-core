@@ -8,14 +8,14 @@ jobs:
       - run:
           name: Restore
           command: dotnet restore
-          working_directory: OscCore
+          working_directory: ./
       - run:
           name: Build
-          command: dotnet build --configuration Release
+          command: dotnet build --configuration Release --no-restore
           working_directory: ./
       - run:
           name: Running Tests
-          command: dotnet test --no-build --no-restore
+          command: dotnet test --no-restore
           working_directory: OscCoreTests        
       - run:
           name: Pack
