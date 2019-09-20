@@ -18,7 +18,7 @@ jobs:
           command: dotnet test --configuration Release --no-restore --logger "trx"
           working_directory: OscCoreTests          
       - run:
-          name: Test Results
+          name: Convert Test Format
           working_directory: ./
           command: export PATH="$PATH:/root/.dotnet/tools" && dotnet tool install -g trx2junit && trx2junit ./**/TestResults/*.trx
       - store_test_results:
