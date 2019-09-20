@@ -1,5 +1,7 @@
 # OscCore
 
+[![CircleCI](https://circleci.com/gh/tilde-love/osc-core.svg?style=svg)](https://circleci.com/gh/tilde-love/osc-core) 
+
 **A preformant Open Sound Control library for .NET Standard from the creator of Rug.Osc**
 
 ## tl;dr 
