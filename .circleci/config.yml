@@ -19,10 +19,8 @@ jobs:
           working_directory: OscCoreTests          
       - run:
           name: test results
-          command: |
-              dotnet tool install -g trx2junit
-              export PATH="$PATH:/root/.dotnet/tools"
-              trx2junit tests/**/TestResults/*.trx
+          command: |              
+              export PATH="$PATH:/root/.dotnet/tools" && dotnet tool install -g trx2junit && trx2junit tests/**/TestResults/*.trx
       - store_test_results:
           path: tests/TestResults
       - store_artifacts:
