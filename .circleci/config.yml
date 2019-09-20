@@ -35,7 +35,7 @@ jobs:
       - save_cache:
           key: nuget-packages-{{ arch }}-{{ .Branch }}-{{ .Environment.CIRCLE_SHA1 }}
           paths:
-            - ./OscCore/.nuget    
+            - ./OscCore/.nuget/*.nupkg    
           
   publish-latest:
     docker:
