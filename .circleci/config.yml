@@ -48,7 +48,7 @@ jobs:
           at: ./
       - run:
           name: Publish to nuget
-          command: find ./.nuget/ | grep .nupkg | while read -r package; do edotnet nuget push "$package" -s https://api.nuget.org/v3/index.json -k $NUGET_API_TOKEN; done 
+          command: find ./.nuget/ | grep .nupkg | while read -r package; do dotnet nuget push "$package" -s https://api.nuget.org/v3/index.json -k $NUGET_API_TOKEN; done 
           working_directory: ./
 workflows:
   version: 2
