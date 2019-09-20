@@ -47,8 +47,8 @@ jobs:
           # Must be absolute path or relative path from working_directory
           at: ./
       - run:
-          name: Snitch
-          command: find ./ | grep .nupkg
+          name: Publish to nuget
+          command: find ./.nuget/ | grep .nupkg | while read -r package; do edotnet nuget push "$package" -s https://api.nuget.org/v3/index.json -k $NUGET_API_TOKEN; done 
           working_directory: ./
 workflows:
   version: 2
@@ -56,6 +56,7 @@ workflows:
     jobs:
       - build    
       - publish-latest:
+          context: tilde-global
           requires:
             - build
           filters:
