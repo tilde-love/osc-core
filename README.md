@@ -26,5 +26,5 @@ Differences over Rug.Osc:
 
 OscCore is:
  
-* Preformant, using the 'Raw' api is typically more that 2x faster than Rug.Osc for read operations.  
+* Performant, using the 'Raw' api is typically more that 2x faster than Rug.Osc for read operations.  
 * Uses minimal memory footprint / copying for normal operation. 
