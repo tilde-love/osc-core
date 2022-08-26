@@ -1,5 +1,7 @@
-﻿// Copyright (c) Tilde Love Project. All rights reserved.
+// Copyright (c) Tilde Love Project. All rights reserved.
 // Licensed under the MIT license. See LICENSE in the project root for license information.
+
+using System.Text;
 
 namespace OscCore.LowLevel
 {
@@ -167,7 +169,7 @@ namespace OscCore.LowLevel
                     string value = obj.ToString();
 
                     // string and terminator
-                    size += value.Length + 1;
+                    size += Encoding.UTF8.GetByteCount(value) + 1;
 
                     // padding 
                     nullCount = 4 - size % 4;
